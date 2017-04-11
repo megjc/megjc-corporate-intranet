@@ -12,6 +12,8 @@
         var vm = this
         vm.revealAction = vm.revealFollowup = vm.showFollowupDate = false
         vm.revealActionForm = revealActionForm
+        vm.cancelFollowup = cancelFollowup
+        vm.save = saveFollowup
         vm.cancel = cancel
         vm.createAction = createAction
         vm.revealFollowupForm = revealFollowupForm
@@ -21,6 +23,9 @@
         vm.ctrls = mailService.initFormCtrls()
         vm.panels = mailService.initPanels()
         vm.update = update
+        vm.show = showFollowup
+        vm.showForm = false
+
         activate()
 
         function activate() {
@@ -159,6 +164,39 @@
                 toggleEditCtrl( key )
                 getActions(vm.mail_corr.id)
           }).catch(function(error){  })
+        }
+        /**
+         * Reveals follow up form
+         * @return {[type]} [description]
+         */
+        function showFollowup(){
+          vm.new_follow_date = mailService.customDate( 7 )
+          vm.showForm = !vm.showForm
+        }
+        /**
+         * Saves follow up date
+         * @return {[type]} [description]
+         */
+        function saveFollowup( key, value ){
+          if(value == null || value == '') return
+
+          mailService.update( key, value, vm.mail_corr.id).then(function(res){
+            mailService.update( 'follow_up', 2, vm.mail_corr.id).then(function(res){
+              vm.showForm = false
+              activate()
+            }).catch(function(error){
+                console.log('Error in updating follow up date')
+            })
+          }).catch(function(error){
+              console.log('Error in updating follow up date')
+          })
+        }
+        /**
+         * Hides follow up form
+         * @return {[type]} [description]
+         */
+        function cancelFollowup(){
+            vm.showForm = !vm.showForm
         }
     }
 })();

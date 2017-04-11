@@ -45,6 +45,14 @@ $app->group('/v1', function() use ($app){
 		$app->group('/upload', function() use( $app ){
 					routeUploadRequests( $app );
 		});
+
+		$app->group('/apps', function() use( $app ){
+					routeAppRequests( $app );
+		});
+
+		$app->group('/transactions', function() use( $app ){
+					routeTransRequests( $app );
+		});
 }); //end of group
 /**
  * Run the Slim application

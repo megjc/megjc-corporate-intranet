@@ -1,5 +1,35 @@
 <div ng-include="'public/app/partials/sub-menu.html'"></div>
 <hr />
+
+<ul class="nav nav-pills">
+  <li role="presentation" class="pull-left"><a href="#!/dashboard/apps/mails/incoming">
+      <i class="fa fa-caret-left" aria-hidden="true"></i>
+    Back</a>
+  </li>
+  <li role="presentation" class="pull-right"><a href ng-click="vm.show()" ng-if="vm.mail_corr.follow_up < 2">
+    <i class="fa fa-calendar" aria-hidden="true"></i>
+     Add Follow up</a>
+   </li>
+</ul>
+<hr />
+
+<div ng-show="vm.showForm">
+  <div class="form-group" >
+    <label>Follow up Date</label>
+    <div class="input-group">
+       <span class="input-group-addon" >
+         <i class="fa fa-calendar" aria-hidden="true"></i>
+       </span>
+      <input class="form-control" type="date" ng-model="vm.new_follow_date">
+    </div>
+    <div class="form-group" style="margin-top: 15px">
+      <a class="btn btn-default" ng-click="vm.cancelFollowup()">Cancel</a>
+      <button class="btn btn-success" ng-click="vm.save('follow_date', vm.new_follow_date)">Save</button>
+    </div>
+  </div>
+  <hr />
+</div>
+
 <div class="alert alert-warning"
      role="alert" data-ng-show="vm.mail_corr.follow_up == 2">
   <strong>Mail flagged for follow up on
@@ -63,7 +93,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">Subject
           <a href class="pull-right" ng-click="vm.toggleEditCtrl('subject')">
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit
           </a>
         </h3>
@@ -91,7 +121,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">File Title
           <a href class="pull-right" ng-click="vm.toggleEditCtrl('file_title')">
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit
           </a>
         </h3>
@@ -119,7 +149,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">Received On
         <a href class="pull-right" ng-click="vm.toggleEditCtrl('receipt_date')">
-          <i class="fa fa-pencil-square" aria-hidden="true"></i>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
           Edit
         </a>
         </h3>
@@ -147,7 +177,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">Correspondence Date
           <a href class="pull-right" ng-click="vm.toggleEditCtrl('mail_date')">
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit
           </a>
         </h3>
@@ -175,7 +205,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">Sender
           <a href class="pull-right" ng-click="vm.toggleEditCtrl('sender')">
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit
           </a>
         </h3>
@@ -203,7 +233,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">From (Organization)
           <a href class="pull-right" ng-click="vm.toggleEditCtrl('from_org')">
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit
           </a>
         </h3>
@@ -231,7 +261,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">Receipent
           <a href class="pull-right" ng-click="vm.toggleEditCtrl('receipent')">
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit
           </a>
         </h3>
@@ -270,7 +300,7 @@
     <div class="panel-heading">
     <h3 class="panel-title">Actions</h3>
   </div>
-  
+
     <p ng-show="vm.actions.length < 1">There are no actions for this mail correspondence.</p>
     <table class="table table-hover" ng-show="vm.actions.length > 0">
         <tr ng-repeat="action in vm.actions">
@@ -291,7 +321,7 @@
         </div>
 
         <a class="btn btn-default" ng-click="vm.cancel()">Cancel</a>
-        <button class="btn btn-success" type="submit">Submit</button>
+        <button class="btn btn-success" type="submit">Save</button>
       </form>
     </div>
 </div>

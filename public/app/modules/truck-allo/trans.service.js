@@ -5,15 +5,17 @@
         .module('trans')
         .service('transService', transService);
 
-    transService.$inject = ['$http'];
+    transService.$inject = ['$http', 'CONSTANTS'];
 
     /* @ngInject */
-    function transService($http) {
+    function transService($http, CONSTANTS) {
         var service = {
           getTransaction: getTransaction,
           getTransactions: getTransactions,
           updateTransaction: updateTransaction,
-          createTransaction: createTransaction
+          createTransaction: createTransaction,
+          getBalances: getBalances,
+          getTransactionsByCouncilId: getTransactionsByCouncilId
         }
 
         function getTransactions() {
@@ -58,6 +60,24 @@
             })
         }
 
-        return service
+      function getTransactionsByCouncilId( id ){
+        return $http
+                  .get(CONSTANTS.URL + 'transactions/councils/' + id)
+                  .then(handleSuccess).catch(handleError)
+      }
+
+      function getBalances(){
+        return $http.get(CONSTANTS.URL + 'transactions/balances').then(handleSuccess).catch(handleError)
+      }
+
+      function handleSuccess( res ){
+        return res.data
+      }
+
+      function handleError( res ){
+        return res
+      }
+
+      return service
     }
 })();

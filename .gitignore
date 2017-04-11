@@ -8,3 +8,5 @@ wordpress/wp-config.php
 wordpress/wp-content/uploads/
 ./idea
 api/routes/uploads
+*.sql
+*.csv

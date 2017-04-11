@@ -8,4 +8,6 @@
   require 'user.php';
   require 'mail.php';
   require 'upload.php';
+  require 'apps.php';
+  require 'transaction.php';
 ?>

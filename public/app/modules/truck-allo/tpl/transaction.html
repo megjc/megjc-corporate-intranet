@@ -1,31 +1,16 @@
-<div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-md-9">
-    <div class="alert alert-success alert-dismissible" role="alert" data-ng-if="message">
-      <!-- <button type="button" class="close" aria-label="Close" data-ng-click="dismiss( message )"><span aria-hidden="true">&times;</span></button> -->
-      <strong>Mail correspondence updated.</strong>
-    </div>
-  </div>
+<div ng-include="'public/app/modules/truck-allo/tpl/sub-menu.html'">
 </div>
-<div class="row">
-	<div class="col-md-3"></div>
-	<div class="col-md-9">
-		<h3 class="department-title capitalize" style="font-weight:normal">Transaction #{{vm.transaction.id}}</h3>
-      <hr>
-	</div>
-</div>
+<hr class="custom-hr"/>
 
 <div class="row help-desk">
-	<div class="col-md-3"
-       data-ng-include="'public/app/modules/truck-allo/tpl/menu.tpl.html'">
-  </div>
+
   <div class="col-md-9 mail ">
-    <label>Date</label>
+    <label>Transaction Date</label>
     <div class="well well-sm ">
       {{vm.transaction.created | timestamp | date:'fullDate'}}
     </div>
 
-    <label>Particulars</label>
+    <label>Particular</label>
     <textarea class="form-control" ng-model="vm.transaction.particular"></textarea>
 
     <label>Parish Council</label>

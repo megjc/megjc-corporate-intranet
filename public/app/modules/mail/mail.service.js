@@ -20,7 +20,8 @@
           followUp: followUp,
           initFormCtrls: initFormCtrls,
           initPanels: initPanels,
-          update:update
+          update:update,
+          customDate: customDate
       }
       /**
        * [uploadFile description]
@@ -115,6 +116,12 @@
         function handleError(error) {
            return error
         }
+      }
+      
+      function customDate( offset ){
+        var date = new Date()
+        date.setDate(date.getDate() + offset)
+        return date
       }
       /**
        * Initializes an empty mail correspondence object
