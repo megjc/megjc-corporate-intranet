@@ -1,6 +1,6 @@
 api/routes/.env
 api/vendor
-public/bower_components
+#public/bower_components
 node_modules
 .idea/
 *.*___jb_tmp___
@@ -8,3 +8,5 @@ wordpress/wp-config.php
 wordpress/wp-content/uploads/
 ./idea
 api/routes/uploads
+*.sql
+*.csv

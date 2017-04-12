@@ -264,6 +264,7 @@
                       "from_org" => "from organization",
                       "receipent" => "receipent",
                       "file_title" =>  "file title",
+                      "follow_date" => "follow up date",
                       "deleted" => "deleted");
       try{
         $db = openDBConnection();
@@ -274,12 +275,16 @@
           $sql = 'INSERT INTO actions (mail_id, uid, description, created_on)
                    VALUES (:mail_id, :uid, :description, :created_on)';
 
-          $desc = "Mail correspondence ".$fields[$request->key]." updated by ". $request->uname;
-          $stmt = $db->prepare( $sql );
-          $stmt->execute(array( ":mail_id" => $id,
-                                 ":uid" => $request->created_by,
-                                 ":description" => $desc,
-                                 ":created_on" => date("Y-m-d H:i:s") ));
+          if($request->key !== 'follow_up'){
+            $desc = "Mail correspondence ".$fields[$request->key]." updated by ". $request->uname;
+
+            $stmt = $db->prepare( $sql );
+            $stmt->execute(array( ":mail_id" => $id,
+                                   ":uid" => $request->created_by,
+                                   ":description" => $desc,
+                                   ":created_on" => date("Y-m-d H:i:s") ));
+          }
+
         }else{
           $response = array();
         }

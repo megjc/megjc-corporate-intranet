@@ -40,8 +40,8 @@
       * @return boolean             [description]
       */
      function checkCredentials( credentials ) {
-       if(credentials.name === '' && credentials.password === '') return false;
-       if(credentials.name === '' || credentials.password === '') return false;
+       if(credentials.name === '' && credentials.password === '') return false
+       if(credentials.name === '' || credentials.password === '') return false
 
        return true;
      }

@@ -1,5 +1,38 @@
 <div ng-include="'public/app/partials/sub-menu.html'"></div>
 <hr />
+
+<ul class="nav nav-pills">
+  <li role="presentation" class="pull-left">
+    <a href="#!/dashboard/apps/mails/incoming" >
+      <i class="fa fa-caret-left" aria-hidden="true"></i>
+    Back</a>
+  </li>
+  <li role="presentation" class="pull-right"><a href ng-click="vm.show()" ng-if="vm.mail_corr.follow_up < 2">
+    <i class="fa fa-calendar" aria-hidden="true"></i>
+     Add Follow up</a>
+   </li>
+</ul>
+<hr />
+
+<div ng-show="vm.showForm">
+  <div class="form-group" >
+    <label>Follow up Date</label>
+    <div class="input-group">
+       <span class="input-group-addon" >
+         <i class="fa fa-calendar" aria-hidden="true"></i>
+       </span>
+      <input class="form-control" type="date" ng-model="vm.new_follow_date">
+    </div>
+    <div class="form-group" style="margin-top: 15px">
+      <a class="btn btn-default" ng-click="vm.cancelFollowup()">Cancel</a>
+      <button class="btn btn-success" ng-click="vm.save('follow_date', vm.new_follow_date)">Save</button>
+    </div>
+  </div>
+  <hr />
+</div>
+
+
+
 <div class="alert alert-warning"
      role="alert" data-ng-show="vm.mail_corr.follow_up == 2">
   <strong>Mail flagged for follow up on
@@ -13,6 +46,21 @@
       </a>
     </li>
   </ul>
+</div>
+
+<div class="well well-sm text-center">
+  <div class="row">
+    <div class="col-md-4">
+      <i class="fa fa-calendar" aria-hidden="true"></i>
+       <strong>Mail Date</strong> - {{vm.mail_corr.mail_date | timestamp | date:'fullDate'}}
+    </div>
+    <div class="col-md-4">
+      <i class="fa fa-calendar" aria-hidden="true"></i>  <strong>Received on</strong> {{vm.mail_corr.receipt_date | timestamp | date:'fullDate' }}
+    </div>
+    <div class="col-md-4">
+       <i class="fa fa-calendar" aria-hidden="true"></i>  <strong>Entered on</strong> {{vm.mail_corr.created_on | timestamp | date:'fullDate' }}
+    </div>
+  </div>
 </div>
 
 <div class="alert alert-success" role="alert" ng-show="vm.updateSuccess">
@@ -63,7 +111,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">Subject
           <a href class="pull-right" ng-click="vm.toggleEditCtrl('subject')">
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit
           </a>
         </h3>
@@ -91,7 +139,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">File Title
           <a href class="pull-right" ng-click="vm.toggleEditCtrl('file_title')">
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit
           </a>
         </h3>
@@ -115,11 +163,11 @@
       </div>
     </div>
 
-    <div class="panel panel-default" ng-show="vm.panels.receipt_date">
+    <!-- <div class="panel panel-default" ng-show="vm.panels.receipt_date">
       <div class="panel-heading">
         <h3 class="panel-title">Received On
         <a href class="pull-right" ng-click="vm.toggleEditCtrl('receipt_date')">
-          <i class="fa fa-pencil-square" aria-hidden="true"></i>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
           Edit
         </a>
         </h3>
@@ -127,7 +175,7 @@
       <div class="panel-body">
         {{vm.mail_corr.receipt_date | timestamp | date:'fullDate'}}
       </div>
-    </div>
+    </div> -->
 
     <div class="well" ng-show="vm.ctrls.receipt_date">
       <p>
@@ -143,11 +191,11 @@
       </div>
     </div>
 
-    <div class="panel panel-default" ng-show="vm.panels.mail_date">
+    <!-- <div class="panel panel-default" ng-show="vm.panels.mail_date">
       <div class="panel-heading">
         <h3 class="panel-title">Correspondence Date
           <a href class="pull-right" ng-click="vm.toggleEditCtrl('mail_date')">
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit
           </a>
         </h3>
@@ -155,7 +203,7 @@
       <div class="panel-body">
         {{vm.mail_corr.mail_date | timestamp | date:'fullDate'}}
       </div>
-    </div>
+    </div> -->
 
     <div class="well" ng-show="vm.ctrls.mail_date">
       <p>
@@ -175,7 +223,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">Sender
           <a href class="pull-right" ng-click="vm.toggleEditCtrl('sender')">
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit
           </a>
         </h3>
@@ -203,7 +251,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">From (Organization)
           <a href class="pull-right" ng-click="vm.toggleEditCtrl('from_org')">
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit
           </a>
         </h3>
@@ -229,9 +277,9 @@
 
     <div class="panel panel-default" ng-show="vm.panels.receipent">
       <div class="panel-heading">
-        <h3 class="panel-title">Receipent
+        <h3 class="panel-title">Recipient
           <a href class="pull-right" ng-click="vm.toggleEditCtrl('receipent')">
-            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
             Edit
           </a>
         </h3>
@@ -243,7 +291,7 @@
 
     <div class="well" ng-show="vm.ctrls.receipent">
       <p>
-        <strong>Edit Receipent</strong>
+        <strong>Edit Recipient</strong>
       </p>
       <div class="form-group">
         <input class="form-control" ng-model="vm.mail_corr.receipent"/>
@@ -255,14 +303,14 @@
       </div>
     </div>
 
-    <div class="panel panel-default">
+    <!-- <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Entered on</h3>
       </div>
       <div class="panel-body">
         {{vm.mail_corr.created_on | timestamp | date:'fullDate'}}
       </div>
-    </div>
+    </div> -->
 
   </div>
   <div class="col-md-7">
@@ -270,7 +318,7 @@
     <div class="panel-heading">
     <h3 class="panel-title">Actions</h3>
   </div>
-  
+
     <p ng-show="vm.actions.length < 1">There are no actions for this mail correspondence.</p>
     <table class="table table-hover" ng-show="vm.actions.length > 0">
         <tr ng-repeat="action in vm.actions">
@@ -291,7 +339,7 @@
         </div>
 
         <a class="btn btn-default" ng-click="vm.cancel()">Cancel</a>
-        <button class="btn btn-success" type="submit">Submit</button>
+        <button class="btn btn-success" type="submit">Save</button>
       </form>
     </div>
 </div>

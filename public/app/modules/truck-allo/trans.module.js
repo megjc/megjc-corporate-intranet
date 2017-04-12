@@ -10,7 +10,7 @@
             templateUrl: 'public/app/modules/truck-allo/tpl/truck-allo.tpl.html',
             controller: 'Trans as vm',
             access: {restricted: true}
-          }).when('/dashboard/apps/truck-allo/transactions',{
+          }).when('/dashboard/apps/truck-allo/transactions/councils/:id',{
             templateUrl: 'public/app/modules/truck-allo/tpl/transactions.html',
             controller: 'Trans as vm',
             access: {restricted: true}

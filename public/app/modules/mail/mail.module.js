@@ -26,9 +26,10 @@
 			templateUrl: "public/app/modules/mail/tpl/mail.followup.html",
 			controller: 'Mail',
 			access: {restricted: true}
-		}).when('/dashboard/apps/mails/delete/:id', {
-			templateUrl: "public/app/modules/mail/tpl/mail.delete.html",
-			controller: 'Mail',
+		}).when('/dashboard/apps/mails/search', {
+			templateUrl: "public/app/modules/mail/tpl/mail.search.html",
+			controller: 'Search',
+			controllerAs: 'vm',
 			access: {restricted: true}
 		});
 	}

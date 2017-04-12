@@ -137,7 +137,7 @@
 
 						if(res.status == 200){
 							$scope.text = 'Mail correspondence created successfully'
-							$scope.message = true							
+							$scope.message = true
 							$scope.success = true
 							clearForm()
 							$scope.mail = mailService.initMail()

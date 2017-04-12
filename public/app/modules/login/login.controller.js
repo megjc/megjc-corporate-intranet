@@ -59,7 +59,6 @@
 		 * @return {[type]} [description]
 		 */
 		function activate() {
-
 			if(loginService.isAuthenticated()){
 				$location.path('/dashboard/apps')
 			}

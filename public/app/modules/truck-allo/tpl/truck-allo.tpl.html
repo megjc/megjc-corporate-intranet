@@ -21,13 +21,13 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="council in vm.councils">
-							<td>{{council.name}}</td>
-							<td>{{council.balance | currency}}</td>
-							<td>{{council.allocation | currency}}</td>
-              <td>{{council.total | currency}}</td>
-              <td>{{council.expenses | currency }}</td>
-              <td>{{council.acc_bal | currency }}</td>
+						<tr ng-repeat="council in vm.balances" ng-click="vm.show(council.id)">
+							<td class="capitalize">{{council.title}}</td>
+							<td>{{council.balance_bf | currency}}</td>
+							<td>10</td>
+              <td>{{council.balance_bf | currency}}</td>
+              <td>10</td>
+              <td>{{council.balance | currency }}</td>
 						</tr>
 					</tbody>
 				</table>
