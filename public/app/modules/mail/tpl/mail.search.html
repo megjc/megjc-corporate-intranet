@@ -8,17 +8,22 @@
         <div class="form-group">
           <input type="text"
                 class="form-control"
-                placeholder="Type here to filter mail by sender or subject"
-                ng-model="search">
+                placeholder="Search mails by subject, recepient, sender, organization or file title"
+                ng-model="vm.q" ng-keyup="vm.query(vm.q)">
         </div>
       </div>
     </div>
-
-			<div class="open-ticket-wrapper">
-
-
-
-
+		<div class="open-ticket-wrapper">
+			<p ng-show="vm.results.length > 0" style="color:#808080;font-size:13px;">
+				Found <strong>{{vm.results.length}}</strong> results
+			</p>
+			<div ng-repeat="result in vm.results" class="search-result-card capitalize">
+				<a ng-href="#!/dashboard/apps/mails/{{result.id}}/view">{{result.sender}}</a>
+				<p>{{result.from_org}}</p>
+				<p>{{result.receipent}}</p>
+				<p>{{result.subject}}</p>
+				<p>{{result.file_title}}</p>
 			</div>
+		</div>
 	</div>
 </div>

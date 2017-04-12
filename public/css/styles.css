@@ -71,6 +71,35 @@ hr.item-divider{
   padding: 15px 0 15px 0;
 }*/
 
+/**
+ * Search
+ */
+
+.search-result-card{
+	color: #545454;
+}
+.search-result-card a{
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.search-result-card a:hover{
+	background-color: #2780E3;
+	color: #ffffff;
+	text-decoration: none;
+	padding: 5px;
+}
+
+.search-result-card p{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.search-result-card p:last-child{
+	margin-bottom: 20px;
+}
+
 .footer {
   bottom: 0;
   width: 100%;

@@ -21,7 +21,8 @@
           initFormCtrls: initFormCtrls,
           initPanels: initPanels,
           update:update,
-          customDate: customDate
+          customDate: customDate,
+          search:search
       }
       /**
        * [uploadFile description]
@@ -117,7 +118,7 @@
            return error
         }
       }
-      
+
       function customDate( offset ){
         var date = new Date()
         date.setDate(date.getDate() + offset)
@@ -287,9 +288,6 @@
               uname : loginService.getUserName(),
               follow_up: flag
             }
-        // if(flag) update.follow_up = 2
-        // else update.follow_up = 1
-
         return $http
                 .put(url, update)
                 .then(handleSuccess)
@@ -302,6 +300,15 @@
         function handleError ( error ) {
           return error
         }
+      }
+
+      function search( q ){
+        var dept_id = loginService.getDepartmentId()
+        var url = API_URLS.base_url + 'search/' + dept_id + '/' + q
+
+        return $http.get(url)
+                    .then(function(res){ return res.data })
+                    .catch(function(res){ return res })
       }
 
       return service;

@@ -10,4 +10,5 @@
   require 'upload.php';
   require 'apps.php';
   require 'transaction.php';
+  require 'search.php';
 ?>
