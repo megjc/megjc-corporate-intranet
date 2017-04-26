@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('mail')
+        .module('intranet.apps.mail')
         .controller('Search', Search);
 
    Search.$inject = ['mailService', 'loginService', '$location', '$http']

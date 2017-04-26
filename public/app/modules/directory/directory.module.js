@@ -1,6 +1,6 @@
 (function(){
 	angular
-	.module('directory',[])
+	.module('intranet.directory',[])
 	.config(config);
 
 	function config($routeProvider){
@@ -8,7 +8,7 @@
 		.when('/directory',{
 			controller: 'Directory',
 			controllerAs: 'vm',
-			templateUrl: 'public/app/modules/directory/directory.html'
+			templateUrl: 'public/app/templates/directory/directory.html'
 		});
 	}
 })();

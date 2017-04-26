@@ -1,6 +1,6 @@
 (function(){
 	angular
-	.module('mail',['ngFileUpload', 'ngMessages'])
+	.module('intranet.apps.mail',['ngFileUpload', 'ngMessages'])
 	.config(config);
 
 	function config($routeProvider){

@@ -1,5 +1,4 @@
 (function() {
-    'use strict';
-
-    angular.module('nav', []);
+    'use strict'
+    angular.module('nav', [])
 })();

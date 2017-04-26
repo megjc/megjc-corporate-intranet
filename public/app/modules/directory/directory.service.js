@@ -1,7 +1,7 @@
 (function(){
    'use strict';
    angular
-   .module('directory')
+   .module('intranet.directory')
    .factory('directoryService', directoryService);
 
    directoryService.$inject = ['$http'];
@@ -14,6 +14,7 @@
        var service = {
            getDepartments: getDepartments,
            getEmployeesByDepartment:getEmployeesByDepartment,
+           getEmployees: getEmployees,
            search: search
        };
        return service;
@@ -21,7 +22,7 @@
         * Get all departments
         */
        function getDepartments(){
-           var url = '/intranet/api/v1/departments';
+           var url = '/api/v1/departments';
            return $http.get(url)
                         .then(getDepartmentsSuccess)
                         .catch(getDepartmentsFailure);
@@ -71,6 +72,14 @@
           * Handle data retrieval error
           */
          function handleError(error){ return error; }
+       }
+       /**
+        * Get all employees
+        * @return {[type]} [description]
+        */
+       function getEmployees(){
+         var url = '/api/v1/employees'
+         return $http.get(url)
        }
    }
 })();

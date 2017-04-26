@@ -1,0 +1,18 @@
+<div ng-include="'public/app/partials/main_menu.tpl.html'"></div>
+
+<div class="staff-directory">
+  <h2>Staff Directory</h2>
+  <hr />
+  <input class="form-control" placeholder="Search by employee name"/>
+  <div class="feed-list">
+    <div class="feed-list-item" ng-repeat="employee in vm.employees | orderBy:'last_name'">
+      <div>
+        <p class="employee-position">{{employee.position}}</p>
+        <p class="employee-name"><strong>{{employee.first_name}} {{employee.last_name}}</strong></p>
+        <p data-ng-if="employee.email"><i class="fa fa-envelope" aria-hidden="true"></i> {{employee.email}}</p>
+        <p data-ng-if="employee.extension"><i class="fa fa-phone-square" aria-hidden="true"></i> {{employee.extension}} </p>
+        <p data-ng-if="employee.cug"><i class="fa fa-phone-square" aria-hidden="true"></i> {{employee.cug}}</p>
+      </div>
+    </div>
+  </div>
+</div>

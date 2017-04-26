@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('mail')
+        .module('intranet.apps.mail')
         .controller('View', View);
 
     View.$inject = ['$scope', '$routeParams','mailService', 'loginService']

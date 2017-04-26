@@ -5,12 +5,12 @@
         .module('nav')
         .controller('Nav', Nav);
 
-    Nav.$inject = ['$scope', '$location', 'mailService', 'loginService']
+    Nav.$inject = ['$scope', '$location', 'mailService', 'loginService', 'sharedServices']
     /* @ngInject */
-    function Nav($scope, $location, mailService, loginService) {
+    function Nav($scope, $location, mailService, loginService, sharedServices) {
       var vm = this
       vm.logout = logout
-
+      vm.track = track
       activate()
       /**
        * Listens for broadcast from parent controller
@@ -74,6 +74,10 @@
         function setCurrentUser() {
           var user = JSON.parse(localStorage.getItem('user'))
           vm.username = user.uname
+        }
+
+        function track( feature ) {
+          sharedServices.track(feature)
         }
     }
 })();

@@ -11,4 +11,5 @@
   require 'apps.php';
   require 'transaction.php';
   require 'search.php';
+  require 'tracking.php';
 ?>

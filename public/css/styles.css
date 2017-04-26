@@ -4,6 +4,15 @@ body{
 	/*margin-bottom: 400px;*/
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-weight: bold;
+}
+
 .capitalize{
 	text-transform: capitalize;
 }
@@ -218,6 +227,47 @@ a:hover{
 	color: #999999;
 	font-size: 11px;
 }
+
+.quick-links{
+	margin-top: 20px;
+}
+
+.quick-link-item{
+	height: 250px;
+	width: auto;
+	color:#FFFFFF;
+	padding: 30px 20px 20px 20px;
+}
+
+.quick-links a{
+	text-decoration: none;
+}
+
+.quick-links p{
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.quick-links h1{
+	margin-top: 20px;
+}
+
+.blue-item{
+	background-color: #22B7EB;
+}
+
+.mustard-item{
+	background-color: #DABC25;
+}
+
+.purple-item{
+	background-color: #3B1859;
+}
+
+.grey-item{
+	background-color: #3B3B3C;
+}
 /***************
  * Main Content
  ***************/
@@ -411,4 +461,41 @@ li.list-group-item a:visited{
 .mail-follow-up a:focus{
 	text-decoration: none;
 	color: #FFFFFF;
+}
+
+/**
+ * Home Page
+ */
+
+.feed-list a:hover{
+	text-decoration: none;
+	color: #FFFFFF;
+	background-color: #2780E3;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.feed-list span{
+	display: block;
+	font-size: 14px;
+	margin-top: 5px;
+	color:#999999;
+}
+
+.feed-list-item{
+	margin-top: 10px;
+}
+
+.news{
+	font-size: 16px;
+}
+
+/**
+ * Login Page
+ */
+
+.login a:hover{
+	text-decoration: none;
+	color: #FFFFFF;
+	background-color: #2780E3;
 }

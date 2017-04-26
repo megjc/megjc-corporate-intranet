@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('mail')
+        .module('intranet.apps.mail')
         .controller('Incoming', Incoming);
 
     Incoming.$inject = ['$scope', '$location','mails', 'mailService']

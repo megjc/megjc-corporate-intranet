@@ -3,21 +3,19 @@
 	.module('intranet',[
 		'ngRoute',
 		'ngCookies',
-		'home',
-		'dashboard',
-		'directory',
-		'login',
+		'intranet.apps.mail',
+		'intranet.auth',
+		'intranet.home',
+		'intranet.dashboard',
 		'help',
 		'shared-services',
-		'vacancy',
 		'promotion',
-		'mail',
 		'trans',
 		'nav'
 	]).run(routeLogin)
 		.config(config)
-		.constant("API_URLS", {	base_url : '/intranet/api/v1/'})
-		.constant('CONSTANTS',{ URL: '/intranet/api/v1/' })
+		.constant("API_URLS", {	base_url : '/api/v1/'})
+		.constant('CONSTANTS',{ URL: '/api/v1/' })
 
 	function config($routeProvider, $httpProvider){
 	 $routeProvider.otherwise({redirectTo: '/login'})

@@ -1,6 +1,6 @@
 (function(){
   angular
-    .module('home')
+    .module('intranet.home')
     .factory('homeService', homeService);
 
     homeService.$inject = ['$http'];

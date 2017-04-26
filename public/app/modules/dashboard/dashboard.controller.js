@@ -1,11 +1,11 @@
 (function() {
     'use strict'
 
-    angular.module('dashboard').controller('Dashboard', Dashboard)
+    angular.module('intranet.dashboard').controller('Dashboard', Dashboard)
 
-    Dashboard.$inject = ['$location', 'loginService', 'dashboardService']
+    Dashboard.$inject = ['$location', 'loginService', 'dashboardService', 'apps']
     /* @ngInject */
-    function Dashboard($location, loginService, dashboardService) {
+    function Dashboard($location, loginService, dashboardService, apps) {
         var vm = this
         vm.logout = logout
         activate()
@@ -14,7 +14,7 @@
          * @return {[type]} [description]
          */
         function activate() {
-          //vm.apps = apps
+          vm.apps = apps
           var user = JSON.parse(localStorage.getItem('user'))
           vm.username = user.uname
         }

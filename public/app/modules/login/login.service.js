@@ -1,6 +1,6 @@
 (function () {
    angular
-   .module('login')
+   .module('intranet.auth')
    .service('loginService', loginService);
 
    loginService.$inject = ['$http', '$location', 'API_URLS'];
