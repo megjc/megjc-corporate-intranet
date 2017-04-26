@@ -3,7 +3,7 @@
  */
 (function(){
 	angular
-	.module('mail')
+	.module('intranet.apps.mail')
 	.controller('Mail', Mail);
 
 	Mail.$inject = ['$routeParams', '$location', '$scope', '$anchorScroll',

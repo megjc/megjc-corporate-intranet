@@ -1,9 +1,9 @@
 <ul class="nav nav-pills" ng-controller="Nav as vm">
-  <li role="presentation" class="pull-right"><a href ng-click="vm.logout()"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
+  <li role="presentation" class="pull-right"><a href ng-click="vm.logout();"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
   <li role="presentation" class="pull-right"><a href>Logged in as <strong>{{vm.username}}</strong></a></li>
   <li role="presentation"><a href="#!/dashboard/apps"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
   <li role="presentation"><a href="#!/dashboard/apps/mails/incoming">Incoming <strong><span class="badge"> {{vm.mails_count}} </span></strong></a></li>
-  <li role="presentation"><a href="#!/dashboard/apps/mails/follow_ups">Follow ups <strong><span class="badge"> {{vm.followup_count}}</strong></a></li>
-  <li role="presentation" ><a href="#!/dashboard/apps/mails/create"> Create Mail</a></li>
-  <li role="presentation" ><a href="#!/dashboard/apps/mails/search"> Search</a></li>
+  <li role="presentation"><a href="#!/dashboard/apps/mails/follow_ups" ng-click="vm.track('follow up')">Follow ups <strong><span class="badge"> {{vm.followup_count}}</strong></a></li>
+  <li role="presentation" ><a href="#!/dashboard/apps/mails/create" ng-click="vm.track('create mail')"> Create Mail</a></li>
+  <li role="presentation" ><a href="#!/dashboard/apps/mails/search" ng-click="vm.track('search')"> Search</a></li>
 </ul>

@@ -1,6 +1,6 @@
 (function(){
 	angular
-	.module('login')
+	.module('intranet.auth')
 	.controller('Login', Login);
 
 	Login.$inject = ['$location', '$scope', 'loginService'];

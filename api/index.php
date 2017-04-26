@@ -57,6 +57,10 @@ $app->group('/v1', function() use ($app){
 		$app->group('/search', function() use( $app ){
 					routeSearchRequests( $app );
 		});
+
+		$app->group('/tracking', function() use( $app ){
+					routeTrackingRequests( $app );
+		});
 }); //end of group
 /**
  * Run the Slim application

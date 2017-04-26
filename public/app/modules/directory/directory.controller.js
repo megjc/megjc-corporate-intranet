@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 	angular
-	.module('directory')
+	.module('intranet.directory')
 	.controller('Directory', Directory);
 
 	Directory.$inject = ['$http', '$routeParams', 'directoryService'];
@@ -11,20 +11,15 @@
 		vm.search = search;
 		vm.getEmployees = getEmployeesByDepartmentId;
 		activate();
-		/**
-		 * Get all departments
-		 */
-		directoryService
-			.getDepartments()
-			.then(function(departments){
-				vm.departments = departments;
-			});
+
 		/**
 		 * [activate description]
 		 * @return {[type]} [description]
 		 */
 		function activate(){
-			getEmployeesByDepartmentId(5);
+			directoryService.getEmployees().then(function(employees){
+				vm.employees = employees.data
+			})
 		}
 		/**
 		 * Retrieves employees by department id.

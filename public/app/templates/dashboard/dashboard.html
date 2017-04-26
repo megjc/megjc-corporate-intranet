@@ -1,0 +1,17 @@
+<div ng-include="'public/app/templates/menus/dashboard.html'"></div>
+<h2 class="department-title">My Apps</h2>
+<hr class="custom-hr"/>
+<div class="row help-desk">
+	<div class="col-md-12">
+			<div class="open-ticket-wrapper">
+          <ul style="list-style:none;padding-left:0">
+            <li class="capitalize" ng-repeat="app in vm.apps">
+              <a ng-href="#!/{{app.link}}" class="apps-link">
+                <i class="{{app.icon}}" aria-hidden="true"></i>
+                 {{app.app_name}}</a>
+                 <hr />
+            </li>
+          </ul>
+			</div>
+	</div>
+</div>

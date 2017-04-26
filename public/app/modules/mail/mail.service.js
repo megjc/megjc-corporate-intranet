@@ -1,6 +1,6 @@
 (function(){
   angular
-    .module('mail')
+    .module('intranet.apps.mail')
     .service('mailService', mailService);
 
     mailService.$inject = ['$http', 'API_URLS', 'loginService', 'Upload'];

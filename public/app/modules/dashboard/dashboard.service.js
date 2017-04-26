@@ -1,6 +1,6 @@
 (function() {
   'use strict'
-   angular.module('dashboard').service('dashboardService', dashboardService)
+   angular.module('intranet.dashboard').service('dashboardService', dashboardService)
    dashboardService.$inject = ['$http', 'CONSTANTS']
     /* @ngInject */
     function dashboardService($http, CONSTANTS) {
@@ -13,7 +13,9 @@
        */
       function getApps(){
         var user = JSON.parse(localStorage.getItem('user'))
-        return $http.get( CONSTANTS.URL + 'apps/' + user.id ).then(handleSuccess).catch(handleError)
+        return $http.get( CONSTANTS.URL + 'apps/' + user.id )
+                    .then(handleSuccess)
+                    .catch(handleError)
       }
 
       function handleSuccess( res ){

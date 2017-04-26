@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 	angular
-	.module('home')
+	.module('intranet.home')
 	.controller('Home', Home);
 
 	Home.$inject = ['$http', '$location', '$window', '$routeParams', 'homeService', 'sharedServices'];

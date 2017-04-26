@@ -5,21 +5,34 @@
 		.module('shared-services',[])
 		.factory('sharedServices', sharedServices);
 
-		sharedServices.$inject = ['$http', '$location'];
+		sharedServices.$inject = ['$http', '$location', 'CONSTANTS', 'loginService'];
 		/**
 		 *
 		 * @param  {[type]} $http [description]
 		 * @return {[type]}       [description]
 		 */
-		function sharedServices($http, $location){
+		function sharedServices($http, $location, CONSTANTS, loginService){
 			var apiBaseUrl = "/wordpress/api";
 			var services = {
 				goTo: goTo,
 				getPostBySlug: getPostBySlug,
 				getPostsByCategory: getPostsByCategory,
 				getPostById:getPostById,
-				isAuth: isAuth
+				isAuth: isAuth,
+				track: track
 			};
+			/**
+			 * [track description]
+			 * @param  {[type]} feature [description]
+			 * @return {[type]}         [description]
+			 */
+			function track( feature ){
+				var tracking = {
+					feature_title: feature,
+					user_id : loginService.getUserId()
+				}
+				$http.post(CONSTANTS.URL + 'tracking/features', tracking )
+			}
 
 			function goTo(path){
 				$location.path('/'+path);
